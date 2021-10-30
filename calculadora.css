@@ -1,0 +1,120 @@
+/* Estilos base y ordenar los elementos*/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+*, *::before, *::after{
+    box-sizing: border-box;
+    font-family: Poppins, sans-serif;
+    font-weight: 800;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    background: linear-gradient(to right, #00AAFF, #00FF6C);
+}
+
+.calculadoraGrid {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    min-height: 100vh;
+    grid-template-columns: repeat(4, 80px);
+    grid-template-rows: minmax(120px, auto) repeat(5, 80px);
+}
+
+.calculadoraGrid > button {
+    cursor: pointer;
+    font-size: 2rem;
+    border: 1px solid white;
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.75);
+}
+
+.calculadoraGrid > button:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.spanTwo {
+    grid-column: span 2;
+}
+
+.output {
+    grid-column: 1 / -1;
+    background-color: rgba(0, 0, 0, 0.75);
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    flex-direction: column;
+    padding: 10px;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.output .numeroPrevio {
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 1.5rem;
+}
+
+.output .numeroActual {
+    color: rgba(255, 255, 255);
+    font-size: 2.5rem;
+}
+
+.divTema {
+    display: flex;
+    justify-content: center;
+}
+
+.botonTema {
+    color: black;
+    background-color: rgba(255, 255, 255, 0.75);
+    margin: 5px;
+    outline: none;
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0);
+    font-size: 1.2rem;
+    bottom: 0px;
+    position: absolute;
+}
+
+.botonTema:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+
+/* Clases del tema oscuro */
+.bodyDark {
+    background: linear-gradient(to right, whitesmoke, black);
+}
+
+.calculadoraGrid > .buttonDark {
+    background-color: rgba(0, 0, 0, 0.75);
+    color: white;
+}
+
+.calculadoraGrid > .buttonDark:hover {
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.outputDark {
+    background-color: rgba(0, 0, 0, 0.877);
+    border: 1px solid gray;
+}
+
+.output .numeroPrevioDark {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.output .numeroActualDark {
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.botonTemaDark {
+    color: rgb(255, 255, 255);
+    background-color: rgba(0, 0, 0, 0.75);
+}
+
+.botonTemaDark:hover {
+    background-color: rgba(0, 0, 0);
+};
