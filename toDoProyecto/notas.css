@@ -19,6 +19,7 @@ body {
     height: 400px;
     width: 400px;
     margin: 20px;
+    margin-top: 40px;
 }
 
 .notes .tools {
@@ -36,8 +37,7 @@ body {
     margin-left: 0.5rem;
 }
 
-.notes .main{
-    display: none;
+.notes .spanMain{
     height: 100%;
     width: 100%;
 }
@@ -53,4 +53,26 @@ body {
 
 .notes .hidden {
     display: none;
+}
+
+.addNoteBtn {
+    height: 4rem;
+    width: 4rem;
+    font-size: 150%;
+    text-decoration: none;
+    border-radius: 50%;
+    background-color: black;
+    color: rgb(255, 187, 0);
+    outline: none;
+    border: 1px solid black;
+    cursor: pointer;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+}
+
+.contenedor {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
 }
