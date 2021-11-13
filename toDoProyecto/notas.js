@@ -13,25 +13,32 @@ function capturarEventos() {
 
     editBtn.forEach((btn, i) => {
         btn.addEventListener('click', () => {
+            // Aca toggleo las clases hidden, para que se deje de ver el textArea y se vea el span de la nota
             spanMain[i].classList.toggle('hidden');
             textArea[i].classList.toggle('hidden');
-            console.log('entro edit');
+            // Aca guardo el valor del textArea en el span de la nota
+            spanMain[i].innerText = textArea[i].value;
         });
     });
     
-    editBtn.forEach((btn, i) => {
-        btn.addEventListener('click', () => {
-        spanMain[i].innerText = textArea[i].value;
-        console.log('entro text');
-        });
-    });
     
     deleteBtn.forEach((btn, i) => {
+        // Limpio el texto de ambos
+        // btn.addEventListener('click', () => {
+        //     spanMain[i].innerText = '';
+        //     textArea[i].value = '';
+        //     console.log('entro delete');
+        // });
         btn.addEventListener('click', () => {
-            spanMain[i].innerText = '';
-            textArea[i].value = '';
-            console.log('entro delete');
-        });
+            if (spanMain[i].innerText.length === 0) {
+                console.log('entro el primer if');
+            } 
+            if (spanMain[i].innerText.length >= 1) {
+                spanMain[i].innerText = '';
+                textArea[i].value = '';
+                console.log('entro el 2do if');
+            }
+        })
     });
 }
 // Ejecuto la funcion una vez para que cargue los botones por primera vez
