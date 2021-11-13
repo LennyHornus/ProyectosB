@@ -1,6 +1,20 @@
-// Obtengo los elementos del html a traves del DOM
-const contenedor = document.querySelector('.contenedor')
-const notesEl = document.querySelectorAll('.notes');
+const contenedor = document.querySelector('.contenedor');
+const notes = JSON.parse(localStorage.getItem('notes'))
+if (notes) {
+    for (let i = 0; i < notes.length; i++) {
+        const element = notes[i];
+        contenedor.innerHTML += `
+                <div class='notes'>
+                    <div class="tools">
+                        <button class="edit"><i class="fas fa-edit"></i></button>
+                        <button class="delete"><i class="far fa-trash-alt"></i></button>
+                    </div>
+                    <span class="spanMain">${element}</span>
+                    <textarea hidden></textarea>
+                </div>
+    `
+    }
+}
 
 // Creo la funcion donde capturo todos los elementos de cada post-it
 // y creo el for each de cada array de elementos que capture, para
@@ -18,26 +32,22 @@ function capturarEventos() {
             textArea[i].classList.toggle('hidden');
             // Aca guardo el valor del textArea en el span de la nota
             spanMain[i].innerText = textArea[i].value;
+            updateLs()
         });
     });
     
     
     deleteBtn.forEach((btn, i) => {
-        // Limpio el texto de ambos
-        // btn.addEventListener('click', () => {
-        //     spanMain[i].innerText = '';
-        //     textArea[i].value = '';
-        //     console.log('entro delete');
-        // });
         btn.addEventListener('click', () => {
-            if (spanMain[i].innerText.length === 0) {
-                console.log('entro el primer if');
+            if (spanMain[i].innerText.length === 0 && textArea[i].value.length === 0) {
+                const notes = document.querySelectorAll('.notes');
+                contenedor.removeChild(notes[i]);
             } 
-            if (spanMain[i].innerText.length >= 1) {
+            if (spanMain[i].innerText.length >= 1 || textArea[i].value.length >= 1) {
                 spanMain[i].innerText = '';
                 textArea[i].value = '';
-                console.log('entro el 2do if');
             }
+            updateLs()
         })
     });
 }
@@ -45,8 +55,10 @@ function capturarEventos() {
 capturarEventos();
 
 
-// Obtengo el boton de agregar nota, y le agrego funcionalidad, ademas corro los eventos de nuevo
-const addNoteBtn = document.querySelector('.addNoteBtn')
+// Obtengo el boton de agregar nota y contenedor para los div de las notas,
+// agrego el div html de las notas, ademas ejecuto la funcion capturarEventos() de nuevo
+// para poder asignarle a los botones del nuevo div funcionalidad tmb
+const addNoteBtn = document.querySelector('.addNoteBtn');
 addNoteBtn.addEventListener('click', () => {
     contenedor.innerHTML += `
                 <div class='notes'>
@@ -60,3 +72,15 @@ addNoteBtn.addEventListener('click', () => {
     `
     capturarEventos();
 });
+
+function updateLs() {
+    const spanMain = document.querySelectorAll('.spanMain');
+    const notesArray = [];
+
+    spanMain.forEach(note => {
+        notesArray.push(note.innerText)
+    })
+
+    localStorage.setItem('notes', JSON.stringify(notesArray));
+    console.log('anda el updateLs');
+} 
