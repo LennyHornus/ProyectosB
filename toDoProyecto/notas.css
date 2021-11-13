@@ -1,7 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,300;1,300&display=swap');
 
-/* font-family: 'Newsreader', serif; */
-
 :root{
     --primary-color: rgb(138, 0, 138);
     --secondary-color: black;
@@ -16,30 +14,31 @@ body {
     font-family: 'Newsreader', serif;
     margin: 0%;
     background-color: var(--primary-color);
-    display: flex;
-    flex-wrap: wrap;
+}
+
+.divAddBtn {
+    height: 3vh;
+    text-align: center;
 }
 
 .addNoteBtn {
-    height: 4rem;
-    width: 4rem;
-    font-size: 150%;
+    height: 2.5rem;
+    width: 6rem;
     text-decoration: none;
-    border-radius: 50%;
     background-color: var(--secondary-color);
     color: white;
     outline: none;
     border: 1px solid black;
-    box-shadow: 3px 3px 15px white;
+    box-shadow: 3px 3px 10px white;
     cursor: pointer;
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    transition: all 400ms ease;
+    z-index: 1000;
+    margin-top: 2vh;
+
 }
 
 .addNoteBtn:hover {
-    border-radius: 25%;
+    background-color: rgba(0, 0, 0, 0.7);
+    box-shadow: 0px 0px 0px;
 }
 
 .notes {

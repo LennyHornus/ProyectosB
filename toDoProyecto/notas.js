@@ -1,8 +1,11 @@
+// Capturo el div contenedor y traigo las notas del localStorage
 const contenedor = document.querySelector('.contenedor');
 const notes = JSON.parse(localStorage.getItem('notes'))
+// Si existen las notas, creo el html para agregarlas con el formato correspondiente
 if (notes) {
     for (let i = 0; i < notes.length; i++) {
         const element = notes[i];
+        if (element.length >= 1) {
         contenedor.innerHTML += `
                 <div class='notes'>
                     <div class="tools">
@@ -10,10 +13,13 @@ if (notes) {
                         <button class="delete"><i class="far fa-trash-alt"></i></button>
                     </div>
                     <span class="spanMain">${element}</span>
-                    <textarea hidden></textarea>
+                    <textarea class='hidden'>${element}</textarea>
                 </div>
     `
-    }
+    }}
+    // Ejecuto la funcion una vez para que cargue los botones de las notas nuevas
+    // Puedo ejecutar la funcion antes de declararla gracias al hoisting de js
+    capturarEventos();
 }
 
 // Creo la funcion donde capturo todos los elementos de cada post-it
@@ -51,8 +57,6 @@ function capturarEventos() {
         })
     });
 }
-// Ejecuto la funcion una vez para que cargue los botones por primera vez
-capturarEventos();
 
 
 // Obtengo el boton de agregar nota y contenedor para los div de las notas,
@@ -82,5 +86,4 @@ function updateLs() {
     })
 
     localStorage.setItem('notes', JSON.stringify(notesArray));
-    console.log('anda el updateLs');
 } 
