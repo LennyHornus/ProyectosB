@@ -100,3 +100,7 @@ body {
     background-color:rgba(190, 190, 190, 0.212);
     border-radius: 30%;
 }
+
+textarea {
+    resize: none;
+}
