@@ -90,3 +90,13 @@ body {
     flex-wrap: wrap;
     align-items: center;
 }
+
+.contenedor .notes .edit:active {
+    background-color:rgba(190, 190, 190, 0.212);
+    border-radius: 30%;
+}
+
+.contenedor .notes .delete:active {
+    background-color:rgba(190, 190, 190, 0.212);
+    border-radius: 30%;
+}
