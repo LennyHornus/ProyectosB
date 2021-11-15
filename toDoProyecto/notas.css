@@ -13,7 +13,8 @@
 body {
     font-family: 'Newsreader', serif;
     margin: 0%;
-    background-color: var(--primary-color);
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(121,9,111,1) 35%, rgba(112,78,162,1) 100%);
 }
 
 .divAddBtn {
@@ -33,7 +34,6 @@ body {
     cursor: pointer;
     z-index: 1000;
     margin-top: 2vh;
-
 }
 
 .addNoteBtn:hover {
@@ -66,9 +66,9 @@ body {
     margin-left: 0.5rem;
 }
 
-.notes .spanMain{
-    height: 100%;
-    width: 100%;
+.spanMain{
+    font-size: 22px;
+    overflow: auto;
 }
 
 .notes textarea {
