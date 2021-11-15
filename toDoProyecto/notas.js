@@ -12,7 +12,9 @@ if (notes) {
                         <button class="edit"><i class="fas fa-edit"></i></button>
                         <button class="delete"><i class="far fa-trash-alt"></i></button>
                     </div>
-                    <span class="spanMain">${element}</span>
+                    <div class="divMain">
+                        <span class="spanMain">${element}</span>
+                    </div>
                     <textarea class='hidden'>${element}</textarea>
                 </div>
     `
